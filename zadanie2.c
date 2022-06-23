@@ -10,6 +10,7 @@ int rnd(int from, int to) {
 }
 
 
+//hod kockami
 int kr1(){
     int r1 = rnd(1,6);
     return r1;
@@ -19,6 +20,8 @@ int kr2(){
     int r2 = rnd(1,6);
     return r2;
 }
+
+
 int max(int a, int b){
     if (a > b){
         return a;
@@ -49,7 +52,7 @@ int main(){
     int tunel[t][2];
     if (t>0) {
 
-
+        //chybove situacie 
         for (int i = 0; i < t; i++) {
             scanf("%d %d", &enter, &exit);
             if (enter == exit || enter < 1 || exit < 1 || enter > n - 1 || exit >= n - 1) {
@@ -73,6 +76,7 @@ int main(){
             }
         }
 
+        //vypise prvotne tunely
         printf("TUNNELS:");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < t; j++) {
@@ -90,6 +94,9 @@ int main(){
     int special_case;
     int c = tunel[t-1][1];
 
+    //cyklus dokym niekto neprejde cielom 
+    //prv sa skontoroluju specialne pripady, potom sa hrac pohne, a vypise sa dany tah
+    //kod je napisane osobitne pre hraca1 a pre hraca2
     while(1==1){
 
         tunel[t-1][1] = c;
@@ -222,6 +229,7 @@ int main(){
         }
 
     }
+    //nakoniec vypis toho kolkokrat bolo navstevene policko na hracej ploche 
     printf("\nVISITS:");
     for(int i=0; i<n; i++){
         printf(" %d",visits[i]);
